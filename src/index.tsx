@@ -90,7 +90,6 @@ class LoadingOverlayWrapperBase extends PureComponent<
       text,
       innerRef,
     } = this.props;
-    const nodeRef = React.useRef(null);
 
     return (
       <div
@@ -111,12 +110,12 @@ class LoadingOverlayWrapperBase extends PureComponent<
           in={active}
           classNames="_loading-overlay-transition"
           timeout={fadeSpeed!}
-          nodeRef={nodeRef}
+          nodeRef={this.overlayRef}
           unmountOnExit
         >
           {(state) => (
             <div
-              ref={nodeRef}
+              ref={this.overlayRef}
               data-testid="overlay"
               className={this.cx(
                 'overlay',
