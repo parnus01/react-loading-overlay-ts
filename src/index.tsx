@@ -116,7 +116,7 @@ class LoadingOverlayWrapperBase extends PureComponent<
         >
           {(state) => (
             <div
-              ref={this.overlayRef}
+              ref={nodeRef}
               data-testid="overlay"
               className={this.cx(
                 'overlay',
