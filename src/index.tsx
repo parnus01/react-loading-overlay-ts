@@ -1,4 +1,4 @@
-import React, { createRef, forwardRef, PureComponent } from 'react';
+import React, { createRef, forwardRef, PureComponent, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { css, CSSInterpolation, cx } from '@emotion/css';
 import { TransitionStatus } from 'react-transition-group/Transition';
@@ -90,6 +90,7 @@ class LoadingOverlayWrapperBase extends PureComponent<
       text,
       innerRef,
     } = this.props;
+    const nodeRef = useRef<HTMLDivElement>(null);
 
     return (
       <div
@@ -110,6 +111,7 @@ class LoadingOverlayWrapperBase extends PureComponent<
           in={active}
           classNames="_loading-overlay-transition"
           timeout={fadeSpeed!}
+          nodeRef={nodeRef}
           unmountOnExit
         >
           {(state) => (
